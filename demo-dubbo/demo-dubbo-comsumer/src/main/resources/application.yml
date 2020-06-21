@@ -1,0 +1,15 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: dubbo-consumer
+
+dubbo:
+  application:
+    name: dubbo-consumer #当前服务/应用的名字
+  registry:
+    address: 192.168.11.128:2181  #注册中心地址
+    protocol: zookeeper  #注册中心协议
+  protocol:
+    name: dubbo  #通信规则（通信协议和接口）
+    port: 20882  #通信规则（通信协议和接口）

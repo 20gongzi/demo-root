@@ -1,0 +1,14 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    druid:
+      url: jdbc:mysql://localhost:3306/demo
+      username: root
+      password: root
+      driver-class-name: com.mysql.jdbc.Driver
+
+# 打印sql
+logging:
+  level:
+    com.cg.demo.mapper: debug

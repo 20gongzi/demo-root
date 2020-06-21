@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+
+<generatorConfiguration>
+
+  <!-- mysql驱动文件位置 -->
+  <classPathEntry location="src/main/resources/generator/mysql-connector-java-5.1.30.jar"/>
+
+  <context id="store" targetRuntime="MyBatis3">
+
+    <commentGenerator>
+      <!-- 是否去除自动生成的注释 -->
+      <property name="suppressAllComments" value="true"/>
+      <!-- 是否去除所有自动生成的文件的时间戳，默认为false -->
+      <property name="suppressDate" value="true"/>
+    </commentGenerator>
+
+    <!--数据库连接的信息 -->
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+      connectionURL="jdbc:mysql://127.0.0.1:3306/demo"
+      userId="root"
+      password="root">
+    </jdbcConnection>
+
+    <!-- targetPackage:包名称
+         targetProject:项目路径 -->
+    <!-- 定义model的包名称-->
+    <javaModelGenerator targetPackage="com.cg.user.mapper" targetProject="src/main/java">
+      <!-- enableSubPackages:是否让schema作为包的后缀 -->
+      <property name="enableSubPackages" value="false"/>
+      <!-- 从数据库返回的值被清理前后的空格  -->
+      <property name="trimStrings" value="true"/>
+    </javaModelGenerator>
+
+    <!-- 配置生成相应的实体Mapper.xml，对于Mapper3.X我们需要把type="XMLMAPPER" -->
+    <sqlMapGenerator targetPackage="com.cg.user.mapper" targetProject="src/main/java">
+      <property name="enableSubPackages" value="false"/>
+    </sqlMapGenerator>
+
+    <!-- 配置生成相应的Mapper接口 -->
+    <javaClientGenerator targetPackage="com.cg.user.mapper" targetProject="src/main/java"
+      type="XMLMAPPER">
+      <property name="enableSubPackages" value="false"/>
+    </javaClientGenerator>
+
+    <!-- 数据表 -->
+    <table tableName="tab_user" domainObjectName="UserPOJO"
+      enableUpdateByExample="false" enableDeleteByExample="false"
+      enableSelectByExample="false" enableCountByExample="false"></table>
+
+  </context>
+</generatorConfiguration>

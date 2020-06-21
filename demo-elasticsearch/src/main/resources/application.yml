@@ -1,0 +1,10 @@
+spring:
+  data:
+    elasticsearch:
+      # 单机配置
+      # 配置连接名称
+      # cluster-name: elasticsearch
+      # cluster-nodes: 192.168.11.128:9300
+      # 集群配置
+      cluster-name: my-elasticsearch
+      cluster-nodes:  127.0.0.1:9300,127.0.0.1:9301,127.0.0.1:9302
